@@ -1,0 +1,35 @@
+server:
+  port: 9999
+
+
+spring:
+  application:
+    name: spring-cloud-gateway
+  cloud:
+    gateway:
+      discovery:  #配置网关发现机制
+        locator:  #配置处理机制
+          # 只要请求地址符合右边规则： http://gatewayIP:port/微服务名称/微服务路径
+          # 网关会自动映射，即把请求转发到 http://微服务名称/微服务路径
+          # 如 有微服务  名字是ribbon-app-service
+          # 若来了一个请求 http://localhost:9999/ribon-app-service/getArgs?name=admin&age=20
+          # 会被映射到 http://ribbon-app-service/getArgs?name=admin&age=20
+          # 商业中enabled一般不设置 使用默认false 避免不必要的自动转发规则
+          enabled: false  #开启网关自动映射处理逻辑
+          lower-case-service-id: true
+      routes:
+        - id: first #
+          uri:
+          predicates:
+            - Path=/api/**
+          filters:
+
+eureka:
+  client:
+    register-with-eureka: true  #表示是否将自己注册进eureka  默认为true
+    fetchRegistry: true  #是否从eurekaService抓取已有的注册消息，默认为true,单节点无所谓 集群必须设置为true才能配合ribbon使用负载均衡
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+  instance:
+    instance-id: gateway9999   #eureka上Status的别名
+    prefer-ip-address: true    #左下角是否显示ip

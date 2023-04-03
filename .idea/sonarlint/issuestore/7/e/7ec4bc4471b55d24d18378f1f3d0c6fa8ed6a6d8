@@ -1,0 +1,15 @@
+
+a
+java:S2259"FA "NullPointerException" could be thrown; "supplier" is nullable here.(“Ð„Ýþÿÿÿÿ
+O
+java:S1854.":Remove this useless assignment to local variable "random".(¼ÝÅf
+S
+java:S1854-"8Remove this useless assignment to local variable "size".(Þ¾ãŸþÿÿÿÿ
+S	java:S106&"9Replace this use of System.out or System.err by a logger.(ÜÆÈÛøÿÿÿÿ
+S	java:S106+"9Replace this use of System.out or System.err by a logger.(Òöä¢ýÿÿÿÿ
+D
+java:S1481-")Remove this unused "size" local variable.(Þ¾ãŸþÿÿÿÿ
+3
+java:S2119."Save and re-use this "Random".(¼ÝÅf
+@
+java:S1481."+Remove this unused "random" local variable.(¼ÝÅf
